@@ -40,6 +40,7 @@ function c64659851.activate(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Hint(HINT_SELECTMSG,1-tp,HINTMSG_SET)
 		local sg=g:Select(1-tp,1,1,nil)
 		if Duel.SSet(1-tp,sg)~=0 and Duel.GetLocationCount(tp,LOCATION_MZONE)>0 then
+			Duel.ConfirmCards(tp,sg)
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
 			local pg=Duel.SelectMatchingCard(tp,c64659851.spfilter,tp,LOCATION_DECK,0,1,1,nil,e,tp)
 			if pg:GetCount()>0 then
