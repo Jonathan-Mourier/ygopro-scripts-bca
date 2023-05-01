@@ -43,7 +43,7 @@ function c645794.setop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c645794.filter,tp,LOCATION_DECK,0,1,1,nil)
 	local tc=g:GetFirst()
 	if tc and Duel.SSet(tp,tc)~=0 then
-	Duel.ConfirmCards(1-tp,tc)
+		Duel.ConfirmCards(1-tp,tc)
 		local e1=Effect.CreateEffect(e:GetHandler())
 		e1:SetType(EFFECT_TYPE_SINGLE)
 		e1:SetCode(EFFECT_CANNOT_TRIGGER)
