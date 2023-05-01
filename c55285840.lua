@@ -34,6 +34,7 @@ function c55285840.matop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetDecktopGroup(1-tp,1)
 	if c:IsRelateToEffect(e) and g:GetCount()==1 then
 		Duel.DisableShuffleCheck()
+		Duel.ConfirmCards(1-tp,g)
 		Duel.Overlay(c,g)
 	end
 end

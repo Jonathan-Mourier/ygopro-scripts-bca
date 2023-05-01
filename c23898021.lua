@@ -50,5 +50,6 @@ function c23898021.thop(e,tp,eg,ep,ev,re,r,rp)
 		local tg=sg:RandomSelect(1-tp,1)
 		Duel.ShuffleDeck(tp)
 		Duel.SSet(tp,tg,tp,false)
+		Duel.ConfirmCards(1-tp,tg,tp)
 	end
 end

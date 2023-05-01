@@ -85,6 +85,7 @@ function c25629622.setop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c25629622.setfilter,tp,LOCATION_DECK,0,1,1,nil)
 	local tc=g:GetFirst()
 	if tc and Duel.SSet(tp,tc)~=0 then
+	Duel.ConfirmCards(1-tp,tc)
 		local c=e:GetHandler()
 		local fid=c:GetFieldID()
 		tc:RegisterFlagEffect(25629622,RESET_EVENT+RESETS_STANDARD,0,1,fid)

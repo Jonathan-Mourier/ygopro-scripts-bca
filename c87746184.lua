@@ -132,6 +132,7 @@ function c87746184.thop(e,tp,eg,ep,ev,re,r,rp)
 			Duel.ConfirmCards(1-tp,tc)
 		else
 			Duel.SSet(tp,tc)
+			Duel.ConfirmCards(1-tp,tc)
 		end
 	end
 end

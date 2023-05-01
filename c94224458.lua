@@ -72,5 +72,6 @@ function c94224458.setop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c94224458.stfilter,tp,LOCATION_DECK,0,1,1,nil)
 	if #g>0 then
 		Duel.SSet(tp,g)
+		Duel.ConfirmCards(1-tp,g)
 	end
 end
