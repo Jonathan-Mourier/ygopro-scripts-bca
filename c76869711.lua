@@ -48,6 +48,7 @@ function c76869711.stop(e,tp,eg,ep,ev,re,r,rp)
 		local tc=g:GetFirst()
 		if tc then
 			Duel.SSet(tp,tc)
+			Duel.ConfirmCards(1-tp,tc)
 		end
 	end
 	local e1=Effect.CreateEffect(e:GetHandler())

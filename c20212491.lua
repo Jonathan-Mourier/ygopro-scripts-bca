@@ -88,6 +88,7 @@ function s.matop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_XMATERIAL)
 		local g=Duel.SelectMatchingCard(tp,aux.NecroValleyFilter(s.matfilter2),tp,LOCATION_GRAVE+LOCATION_DECK,0,1,1,nil,tc)
 		if #g>0 then
+			Duel.ConfirmCards(1-tp,g)
 			Duel.Overlay(tc,g)
 		end
 	end
