@@ -36,6 +36,7 @@ function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	local b2=th and tc:IsAbleToHand()
 	if b1 and (not b2 or Duel.SelectOption(tp,1153,1190)==0) then
 		Duel.SSet(tp,tc)
+		Duel.ConfirmCards(1-tp,tc)
 		local e1=Effect.CreateEffect(e:GetHandler())
 		e1:SetType(EFFECT_TYPE_SINGLE)
 		e1:SetCode(EFFECT_CANNOT_TRIGGER)
