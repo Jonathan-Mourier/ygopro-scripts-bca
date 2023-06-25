@@ -55,6 +55,7 @@ function c42228966.ssop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c42228966.ssfilter,tp,LOCATION_DECK,0,1,1,nil)
 	if g:GetCount()>0 then
 		Duel.SSet(tp,g)
+		Duel.ConfirmCards(1-tp,g)
 	end
 end
 function c42228966.tgcon(e,tp,eg,ep,ev,re,r,rp)
