@@ -6,7 +6,7 @@ MAX_PARAMETER	=0xffff
 --Locations 区域
 LOCATION_DECK		=0x01		--卡组
 LOCATION_HAND		=0x02		--手牌
-LOCATION_MZONE		=0x04		--怪兽区
+LOCATION_MZONE		=0x04		--主要怪兽区(0~4)+额外怪兽区(5~6)
 LOCATION_SZONE		=0x08		--魔陷区(0~4)+场地区(5)
 LOCATION_GRAVE		=0x10		--墓地
 LOCATION_REMOVED	=0x20		--除外区
@@ -73,7 +73,7 @@ ATTRIBUTE_LIGHT		=0x10		--光
 ATTRIBUTE_DARK		=0x20		--暗
 ATTRIBUTE_DIVINE	=0x40		--神
 --Races 种族
-RACE_ALL			=0x1ffffff	--全种族
+RACE_ALL			=0x3ffffff	--全种族
 RACE_WARRIOR		=0x1		--战士
 RACE_SPELLCASTER	=0x2		--魔法师
 RACE_FAIRY			=0x4		--天使
@@ -99,6 +99,7 @@ RACE_DIVINE			=0x200000	--幻神兽
 RACE_CREATORGOD		=0x400000	--创造神
 RACE_WYRM			=0x800000	--幻龙
 RACE_CYBERSE		=0x1000000	--电子界
+RACE_ILLUSION		=0x2000000	--幻想魔
 --Reason 卡片到当前位置的原因
 REASON_DESTROY		=0x1		--破坏
 REASON_RELEASE		=0x2		--解放
@@ -166,7 +167,7 @@ STATUS_FORM_CHANGED			=0x0100		--改变过表示形式
 STATUS_SUMMONING			=0x0200		--召唤中
 STATUS_EFFECT_ENABLED		=0x0400		--卡片準備就緒(不在移動、召喚、魔法陷阱發動中)
 STATUS_SUMMON_TURN			=0x0800		--在本回合召喚/SET
-STATUS_DESTROY_CONFIRMED	=0x1000		--破坏确定
+STATUS_DESTROY_CONFIRMED	=0x1000		--预定被破坏
 STATUS_LEAVE_CONFIRMED		=0x2000		--連鎖處理完後送去墓地的魔法陷阱
 STATUS_BATTLE_DESTROYED		=0x4000		--战斗破坏确定後尚未移動
 STATUS_COPYING_EFFECT		=0x8000		--复制效果
