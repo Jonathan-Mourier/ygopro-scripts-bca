@@ -717,7 +717,7 @@ function Auxiliary.TuneMagicianCheckAdditionalX(ecode)
 			end
 end
 function Auxiliary.XyzAlterFilter(c,alterf,xyzc,e,tp,alterop)
-	return alterf(c) and c:IsCanBeXyzMaterial(xyzc) and Duel.GetLocationCountFromEx(tp,tp,c,xyzc)>0
+	return alterf(c,e,tp,xyzc) and c:IsCanBeXyzMaterial(xyzc) and Duel.GetLocationCountFromEx(tp,tp,c,xyzc)>0
 		and Auxiliary.MustMaterialCheck(c,tp,EFFECT_MUST_BE_XMATERIAL) and (not alterop or alterop(e,tp,0,c))
 end
 --Xyz monster, lv k*n
@@ -1209,7 +1209,7 @@ function Auxiliary.FConditionMix(insf,sub,...)
 				local mg=g:Filter(Auxiliary.FConditionFilterMix,c,c,sub,concat_fusion,table.unpack(funs))
 				if gc then
 					if not mg:IsContains(gc) then return false end
-					Duel.SetSelectedCard(Group.FromCards(gc))
+					Duel.SetSelectedCard(gc)
 				end
 				return mg:CheckSubGroup(Auxiliary.FCheckMixGoal,#funs,#funs,tp,c,sub,chkfnf,table.unpack(funs))
 			end
@@ -1223,7 +1223,7 @@ function Auxiliary.FOperationMix(insf,sub,...)
 				local concat_fusion=chkfnf&0x200>0
 				local sub=(sub or notfusion) and not concat_fusion
 				local mg=eg:Filter(Auxiliary.FConditionFilterMix,c,c,sub,concat_fusion,table.unpack(funs))
-				if gc then Duel.SetSelectedCard(Group.FromCards(gc)) end
+				if gc then Duel.SetSelectedCard(gc) end
 				Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_FMATERIAL)
 				local sg=mg:SelectSubGroup(tp,Auxiliary.FCheckMixGoal,false,#funs,#funs,tp,c,sub,chkfnf,table.unpack(funs))
 				Duel.SetFusionMaterial(sg)
@@ -3168,4 +3168,9 @@ function Auxiliary.RemoveOperation(e,tp,eg,ep,ev,re,r,rp)
 			Duel.Destroy(c,REASON_EFFECT)
 		end
 	end
+end
+--The operation function of "destroy during End Phase"
+function Auxiliary.EPDestroyOperation(e,tp,eg,ep,ev,re,r,rp)
+	local tc=e:GetLabelObject()
+	Duel.Destroy(tc,REASON_EFFECT,LOCATION_GRAVE,tc:GetControler())
 end
