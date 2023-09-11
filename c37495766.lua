@@ -71,6 +71,7 @@ function s.setop(e,tp,eg,ep,ev,re,r,rp)
 		local sg=g:SelectSubGroup(tp,aux.dncheck,false,1,ft)
 		if sg:GetCount()>0 then
 			Duel.SSet(tp,sg)
+			Duel.ConfirmCards(1-tp,sg)
 		end
 	end
 end

@@ -92,6 +92,7 @@ function c46412900.damop(e,tp,eg,ep,ev,re,r,rp)
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SET)
 			local g=Duel.SelectMatchingCard(tp,c46412900.scfilter,tp,LOCATION_DECK,0,1,1,nil)
 			Duel.SSet(tp,g:GetFirst())
+			Duel.ConfirmCards(1-tp,g)
 	end
 end
 function c46412900.cfilter(c,tp)
